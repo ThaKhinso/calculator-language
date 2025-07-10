@@ -44,13 +44,15 @@ int main() {
         }
 
         // After all those steps, we need to validate the input to see if it match our language specifications or not.
-        
+        if (!evaluate(input) || strcmp(input, "tests") == 0 ){
+            printf("Error: WRONG SYNTAX\n");
+        }
+        else {
+            // We will do our control logic after here. Right now, we print whatever the user write to the console.
+            printf("You said %s\n", input);
 
-        // We will do our control logic after here. Right now, we print whatever the user write to the console.
-        printf("You said %s\n", input);
+        }
+
 
     }
-
-
-    printf("test\n");
 }
