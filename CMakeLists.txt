@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set the project name and language
 project(Calculator_lang C)
@@ -7,9 +8,10 @@ project(Calculator_lang C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
+file(GLOB SRC_FILES src/*.c)
 # Add the source files
 add_executable(${PROJECT_NAME}
-    src/main.c
+    ${SRC_FILES}
 )
 
 # (Optional) Include header directories

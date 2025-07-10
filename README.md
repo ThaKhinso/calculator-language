@@ -55,3 +55,8 @@ cd Debug
 
 - The project uses the C11 standard.
 - To clean the build, simply delete the `build/` directory.
+
+## ⚠️ Important
+
+**If you target the visual studio as build system, you need to use the visual studio to get correct code autocomplete, suggestions, etc.**
+**If you had targeted visual studio and do the development on other editors, you would get funky include errors but those are fine**

@@ -1,0 +1,10 @@
+This is meant for typing out math equations so it should be simple
+Like for example
+12 + 33 * 8 / 9 << 4 >> 6
+
+The language will evaluate the multiply sign and division signs first.
+If there is an open, close bracket, the language will evaluate it first.
+
+(12 + 33) * 8 / 9 << 4 >> 6
+
+We will add the langauge features as the project progresses

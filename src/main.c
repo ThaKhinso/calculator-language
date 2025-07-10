@@ -4,7 +4,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-
+// headers from here are custom headers we add
+#include "evaluator.h"
 
 int main() {
 
@@ -43,7 +44,7 @@ int main() {
         }
 
         // After all those steps, we need to validate the input to see if it match our language specifications or not.
-        //eval(input)
+        
 
         // We will do our control logic after here. Right now, we print whatever the user write to the console.
         printf("You said %s\n", input);
