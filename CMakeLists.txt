@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Set the project name and language
+project(Calculator_lang C)
+
+# Set the C standard
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED True)
+
+# Add the source files
+add_executable(${PROJECT_NAME}
+    src/main.c
+)
+
+# (Optional) Include header directories
+target_include_directories(${PROJECT_NAME} PRIVATE include)
