@@ -1,3 +1,12 @@
 #pragma once
 #include <stdbool.h>
-bool evaluate(const char* const input);
+
+typedef enum {
+	GOOD,
+	LOW_MEMORY,
+	WRONG_SYNTAX,
+	NO_INPUT
+}Errors;
+
+
+int evaluate(const char* const input, Errors code);
