@@ -1,20 +1,23 @@
 #pragma once
 
-typedef struct{
-    float left;
-    float right;
-    char operand;
-    float result;
-    char secondary_operand;
-}calc_data;
+typedef enum {
+    NODE_NUMBER,
+    NODE_OPERATOR
+} NodeType;
 
-struct Bst_Node{
-    calc_data data;
-    struct Bst_Node* left;
-    struct Bst_Node* right;
-};
+typedef struct ASTNode {
+    NodeType type;
 
-typedef struct Bst_Node Bst_Node;
+    union {
+        int number;  // For NODE_NUMBER
+        struct {
+            char operator;
+            struct ASTNode* left;
+            struct ASTNode* right;
+        } op;
+    };
+} ASTNode;
 
-calc_data* creat_calcdata(float left, float right, char operand, float result);
-Bst_Node* Insert(Bst_Node* root, calc_data* data);
+ASTNode* create_number_node(int value);
+ASTNode* create_operator_node(char op, ASTNode* left, ASTNode* right);
+int evaluate(ASTNode* node);

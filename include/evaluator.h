@@ -8,5 +8,5 @@ typedef enum {
 	NO_INPUT
 }Errors;
 
-
+bool isValid(int character);
 int evaluate(const char* const input, Errors code);

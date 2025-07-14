@@ -8,9 +8,10 @@
 #include "evaluator.h"
 
 int main() {
-
+    char* test_string = "12 + 34 - 56";
     // make a char array with the maxium length for input to be stored and initialized it to zero.
-    // Note that initializing to zero is necessary if you are using the msvc compiler.
+    // Note that initializing to zero is necessary if you are using the msvc compiler or else
+    // it will be undefined behaviour.
     char input[MAX_INPUT] = {0};
 
     // This is the welcome text.
@@ -49,7 +50,9 @@ int main() {
         }
         else {
             // We will do our control logic after here. Right now, we print whatever the user write to the console.
-			evaluate(input, error_code);
+            if (evaluate(input, error_code) == 0) {
+                continue;
+            };
             printf("You said %s\n", input);
 
         }
