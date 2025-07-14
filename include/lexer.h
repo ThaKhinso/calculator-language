@@ -20,3 +20,4 @@ typedef struct ASTNode {
 
 ASTNode* create_number_node(int value);
 ASTNode* create_operator_node(char op, ASTNode* left, ASTNode* right);
+int evaluate(ASTNode* node);
