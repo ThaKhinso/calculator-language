@@ -1,4 +1,10 @@
 #include "lexer.h"
+#include <stdio.h>
+static ASTNode* root = NULL;
+
+ASTNode* get_main_node() {
+    return root;
+}
 
 ASTNode* create_number_node(int value) {
     ASTNode* node = malloc(sizeof(ASTNode));

@@ -5,7 +5,7 @@
 #include <ctype.h>
 #define C_VECTOR_IMPLEMENTATION
 #include "c_vector.h"
-
+#include "lexer.h"
 
 void helperfunction(char*** tempvalues, int *temp_index, int* char_index, Errors *code) {
 	// Managing pointers in C looks really weird
@@ -19,6 +19,7 @@ void helperfunction(char*** tempvalues, int *temp_index, int* char_index, Errors
 
 // This is the function we check for syntax errors
 int evaluate(const char* const input, Errors code) {
+	ASTNode* root = get_main_node();
 	char** tempvalues = malloc(sizeof(char*)* 10241);
 	char* signs = malloc(sizeof(char) * 1024);
 	int sign_index = 0;
@@ -62,28 +63,29 @@ int evaluate(const char* const input, Errors code) {
 				//}
 				helperfunction(&tempvalues, &temp_index, &char_index, &code); // Call the helper function to handle the temporary value
 				char_index = 0;
-				switch (input[i]) {
-				case '+':
-					signs[sign_index] = '+';
-					sign_index++;
-					break;
-				case '-':
-					signs[sign_index] = '-';
-					sign_index++;
-					break;
-				case '*':
-					signs[sign_index] = '*';
-					sign_index++;
-					break;
-				case '/':
-					signs[sign_index] = '/';
-					sign_index++;
-					break;
-					break;
-				}
-				char_index = 0; // Reset character index
+				
 
 				
+			}
+
+			switch (input[i]) {
+			case '+':
+				signs[sign_index] = '+';
+				sign_index++;
+				break;
+			case '-':
+				signs[sign_index] = '-';
+				sign_index++;
+				break;
+			case '*':
+				signs[sign_index] = '*';
+				sign_index++;
+				break;
+			case '/':
+				signs[sign_index] = '/';
+				sign_index++;
+				break;
+				break;
 			}
 		}
 		else {
