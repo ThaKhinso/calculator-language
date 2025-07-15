@@ -1,5 +1,5 @@
 #define MAX_INPUT   1024
-
+#define ENABLE_TEST_INPUT
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 #include "evaluator.h"
 
 int main() {
-    char* test_string = "12 + 34 - 56";
+    char* test_string = "12 - - 56";
     // make a char array with the maxium length for input to be stored and initialized it to zero.
     // Note that initializing to zero is necessary if you are using the msvc compiler or else
     // it will be undefined behaviour.
@@ -18,6 +18,9 @@ int main() {
     printf("Welcome to CalculatorLang CL! Type 'exit' to quit.\n");
 	enum Errors error_code = GOOD; // Initialize the error code to NO_INPUT
     // This make an endless loop which takes input from the user.
+#ifdef ENABLE_TEST_INPUT
+    #define input "12 - - 56" // This is a test input for the program, you can change it to whatever you want.
+#endif
     while (1) {
         // This line is necessary so that the input line looks different from the output line.
         printf(">> ");
